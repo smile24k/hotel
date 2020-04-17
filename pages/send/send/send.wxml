@@ -1,0 +1,66 @@
+<!--pages/send/send.wxml-->
+<view class="send-page">
+
+
+	<view class="header">
+		<view class="list">
+			<picker bindchange="bindMultiPickerChange" data-type="area" bindcolumnchange="bindMultiPickerColumnChange" range-key="name" value="{{areaIndex}}" range="{{areaList}}">
+				<view class="picker">
+					{{areaList[areaIndex].name}}
+				</view>
+			</picker>
+
+			<text class="arrow-down"></text>
+
+		</view>
+		<view class="list">
+			<picker bindchange="bindMultiPickerChange" data-type="cate" bindcolumnchange="bindMultiPickerColumnChange" range-key="name" value="{{cateIndex}}" range="{{cateList}}">
+				<view class="picker">
+					{{cateList[cateIndex].name}}
+				</view>
+			</picker>
+			<text class="arrow-down"></text>
+
+		</view>
+		<view class="list">
+			<picker bindchange="bindMultiPickerChange" data-type="order" bindcolumnchange="bindMultiPickerColumnChange" range-key="name" value="{{orderIndex}}" range="{{orderList}}">
+				<view class="picker">
+					{{orderList[orderIndex].name}}
+				</view>
+			</picker>
+			<text class="arrow-down"></text>
+
+		</view>
+	</view>
+	<!-- <view class="tab">
+		<scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+			<text bindtap="setTypeIndex" data-index="{{index}}" class="scroll-list {{typeIndex == index?'active':''}}" wx:for="{{types}}" wx:key="id">{{item.name}}</text>
+		</scroll-view>
+	</view> -->
+
+  <scroll-view class="content"  scroll-y="true" bindscrolltolower="getSendList" lower-threshold="100">
+    <view class="send-list {{index == sendList.length - 1 ? 'last':''}}" wx:for="{{sendList}}" wx:key="index">
+      <view class="send-top flex">
+        <view class="left flex">
+          <image mode="widthFix" src="{{item.user.avatar}}"></image>
+          <text>{{item.name}}</text>
+        </view>
+        <!-- <view class="right">
+          <text>出售</text>
+        </view> -->
+      </view>
+      <!-- <view class="tags">
+        <text class="tag" wx:for="{{3}}"   wx:for-index="tagIndex" wx:for-item="tag"  wx:key="tagIndex">全新</text>
+      </view> -->
+      <view class="desc">
+        <text>{{item.description}}</text>
+      </view>
+
+      <scroll-view class="images flex-view_H" scroll-x="true">
+        <image bindtap="showImg" data-index="{{idx}}" data-images="{{item.images}}"  mode="aspectFill" src="{{list}}"  wx:for-index="idx" wx:for-item="list" wx:for="{{item.images}}" wx:key="idx"></image>
+      </scroll-view>
+    </view>
+
+    <view wx:if="{{!hasMore}}" class="center">到底了哦~</view>
+  </scroll-view>
+</view>

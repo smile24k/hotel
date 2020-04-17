@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="index-page">
+	<view class="header">
+		<!-- <view class="inp-line">
+			<input></input>
+		</view> -->
+		<view class="page-section page-section-spacing swiper">
+      <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{bannerList}}" wx:key="*this">
+          <swiper-item>
+            <image mode="widthFix" class="swiper-img" src="{{item}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+	</view>
+	<view class="cates">
+		<view class="list" wx:for="{{category}}" wx:key="index">
+			<button data-item="{{item}}" bindtap="clickCate" class="round">
+				{{item.name}}
+			</button>
+			<text>{{item.description}}</text>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,82 @@
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<view class="page send-data-page" xmlns:wx="http://www.w3.org/1999/xhtml">
+	<view class="top">
+		<text>免责声明: 本平台发布的所有信息仅供展示,请遵守当地法律,信息与平台无关,不负任何责任</text>
+		<text class="red">免费发布!</text>
+	</view>
+	<view class="page__bd">
+
+
+		<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+
+			<mp-cells>
+				<mp-cell title="类别" ext-class="area">
+					<view class="weui-cell weui-cell_select">
+						<view class="weui-cell__bd">
+							<picker bindchange="bindCateChange" value="{{cateIndex}}" range-key="name" range="{{cateList}}">
+								<view class="weui-select">{{cateList[cateIndex].name}}</view>
+							</picker>
+						</view>
+					</view>
+				</mp-cell>
+                <mp-cell title="区域" ext-class="area">
+					<view class="weui-cell weui-cell_select">
+						<view class="weui-cell__bd">
+							<picker bindchange="bindAccountChange" value="{{accountIndex}}" range-key="name" range="{{accounts}}">
+								<view class="weui-select">{{accounts[accountIndex].name}}</view>
+							</picker>
+						</view>
+					</view>
+				</mp-cell>
+
+
+				<view class="weui-cells weui-cells_after-title">
+					<view class="weui-cell">
+						<view class="weui-cell__bd">
+							<textarea class="weui-textarea" maxlength="200"  bindinput="formInputChange" data-field="description" placeholder="请输入文本" style="height: 3.3em" />
+							<view class="weui-textarea-counter">{{formData.description.length || 0}}/200</view>
+                </view>
+            </view>
+        </view>
+            <mp-cell>
+                <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="9" title="上传照片" tips="最多9张"></mp-uploader>
+            </mp-cell>
+            <!-- <view class="tags">
+                <view class="tag" wx:for="{{10}}">测试</view>
+            </view> -->
+        </mp-cells>
+
+            <mp-cells title="" footer="">
+                <mp-cell prop="name" title="联系人" ext-class="">
+                    <input bindinput="formInputChange" data-field="name" class="weui-input" placeholder="请输入联系人"/>
+                </mp-cell>
+                
+                <mp-cell prop="mobile" title="电话号码" ext-class="">
+                    <input bindinput="formInputChange" type="number" maxlength="20" data-field="mobile" class="weui-input" placeholder="请输入手机号"/>
+                    <!-- <view slot="footer" class="weui-vcode-btn">获取验证码</view> -->
+                </mp-cell>
+                <checkbox-group bindchange="bindAgreeChange">
+            <label class="weui-agree" for="weuiAgree">
+                <view class="weui-agree__text">
+                    <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+                    <view class="weui-agree__checkbox-icon">
+                        <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+                    </view>
+                    阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
+                </view>
+            </label>
+        </checkbox-group>
+            </mp-cells>
+        </mp-form>
+        
+        
+
+        
+
+        
+
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="submitForm">确定</button>
+        </view>
+    </view>
+</view>

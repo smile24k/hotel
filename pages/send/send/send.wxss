@@ -1,0 +1,119 @@
+/* pages/send/send.wxss */
+page{
+  height: 100%;
+}
+.send-page{
+  height: 100%;
+}
+.send-page .header{
+  
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #ddd;
+  background-color: #fff;
+}
+.send-page .header .list{
+  width: 33.33%;
+  text-align: center;
+  color: #666;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content: center;
+}
+.arrow-down{
+
+}
+.arrow-down::before{
+  content: "";
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  border-right: 1rpx solid #666;
+  border-bottom: 1rpx solid #666;
+  transform: rotate(45deg);
+  left: 5px;
+  position: relative;
+  top: -5px;
+}
+
+
+.tab{
+  height: 96rpx;
+  line-height: 96rpx;
+  background-color: #f8f8f8;
+}
+.tab .scroll-list{
+  margin-left: 20px;
+  color: #666;
+}
+.tab .scroll-list.active{
+  color: #000;
+}
+
+.content{
+  height: calc(100% - 100rpx);
+}
+.send-list{
+
+  padding: 15px;
+  border-bottom: 1rpx solid #ddd;
+}
+.send-list.last{
+  border-bottom: none;
+}
+
+.send-top{
+  color: #5C6376;
+}
+.send-list .send-top .right{
+  margin-left: auto;
+  color: #5F738C;
+}
+
+.send-list .send-top image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  background-color: #f8f8f8;
+  margin-right: 10px;
+}
+.tags{
+  margin-top: 15px;
+}
+
+.tags .tag{
+  background-color: inherit;
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin-left: 0;
+  margin-right: 15px;
+  color: #6499CB;
+  border-color: #6499CB;
+  margin-bottom: 0;
+}
+.tags .tag:nth-child(2n+2){
+  color: #96CB95;
+  border-color: #96CB95;
+
+}
+.desc{
+  margin-top: 10px;
+}
+
+.images{
+  margin-top: 10px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+.images image{
+  width: 225rpx;
+  height: 225rpx;
+  margin-right: 10px;
+}
+
+.center{
+  padding: 20px;
+  color: #999;
+  text-align: center;
+}

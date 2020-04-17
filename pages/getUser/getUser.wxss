@@ -1,0 +1,7 @@
+/* pages/getUser/getUser.wxss */
+
+.user-page{
+  margin-top: 200px;
+  text-align: center;
+  padding: 0 15px;
+}
