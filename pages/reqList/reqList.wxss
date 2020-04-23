@@ -1,0 +1,47 @@
+/* pages/reqList/reqList.wxss */
+page{
+  height: 100%;
+
+}
+.scoll{
+  height: 100%;
+}
+.news .news-list{
+  background-color: #fff;
+  padding: 20px 12px;
+  border-bottom: 1rpx solid #ddd;
+  align-items: flex-start;
+  
+}
+.news .news-list:last-of-type{
+  border-bottom: none;
+}
+.news .news-list image{
+  width:200rpx;
+  height: 200rpx;
+  margin-right: 12px;
+  background-color: #ddd;
+  flex-shrink: 0;
+
+}
+.news .news-list .right{
+  flex:1;
+}
+.news .news-list .right .title{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 16px;
+  font-weight: 600;
+  color:#000;
+}
+.news .news-list .right .desc text{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: #999;
+}

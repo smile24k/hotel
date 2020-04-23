@@ -39,7 +39,20 @@
             </view>
         </view>
             <mp-cell>
-                <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="9" title="上传照片" tips="最多9张"></mp-uploader>
+                <view class="top-tip flex ">
+                    <text>上传图片</text>
+                    <text>{{files.length}}/9 张</text>
+                </view>
+                <view class="lists flex">
+                    <view class="img-list" wx:for="{{files}}">
+                        <image bindtap="showImg" data-index="{{index}}" mode="aspectFill" src="{{item}}"></image>
+                    </view>
+                    <view bindtap="chooseImage" class="img-list add">
+
+                        <mp-icon icon="add" color="gray" size="{{34}}"></mp-icon>
+                        <text>添加</text>
+                    </view>
+                </view>
             </mp-cell>
             <!-- <view class="tags">
                 <view class="tag" wx:for="{{10}}">测试</view>
@@ -69,7 +82,7 @@
             </mp-cells>
         </mp-form>
         
-        
+        <mp-gallery show="{{show}}" bindchange="change" binddelete="delete" bindhide="hide" img-urls="{{files}}" delete hide-on-click="{{true}}" current="{{currIndex}}"></mp-gallery>
 
         
 

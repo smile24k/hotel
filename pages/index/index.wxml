@@ -23,4 +23,33 @@
 			<text>{{item.description}}</text>
 		</view>
 	</view>
+	<view class="scroll-wrap">
+		<view class="scoll-top">
+			<text>热门商家</text>
+			<text class="m-right" bindtap="goReqList">More></text>
+		</view>
+		<scroll-view class="scroll-lists" scroll-x="true">
+			<view class="scroll-list" data-id="{{item.id}}" bindtap="goReqDetail"  wx:for="{{shopList}}" wx:key="id">
+				<view>
+				
+				<image mode="aspectFill" src="{{item.images[0]}}"></image>
+				</view>
+				<view class="text">{{item.name}}</view>
+			</view>
+			<view bindtap="addShop" class="add-btn">
+				加入商圈
+			</view>
+		</scroll-view>
+	</view>
+	<view class="news">
+		<view data-url="{{item.link}}" bindtap="goWeb" class="news-list flex" wx:for="{{news}}" wx:key="id">
+			<image mode="aspectFill" src="{{item.images[0]}}"></image>
+			<view class="right">
+				<view class="title">{{item.title}}</view>
+				<view class="desc">
+					<text>{{item.description}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
 </view>

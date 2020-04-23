@@ -7,6 +7,8 @@
     "mp-cell": "../components/cell/cell",
     "mp-checkbox": "../../../components/checkbox/checkbox",
     "mp-checkbox-group": "../../../components/checkbox-group/checkbox-group",
-    "mp-form": "../../../components/form/form"
+    "mp-form": "../../../components/form/form",
+    "mp-icon": "../../../components/icon/icon",
+    "mp-gallery": "../../../components/gallery/gallery"
   }
 }

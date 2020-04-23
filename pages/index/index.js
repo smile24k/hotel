@@ -6,47 +6,125 @@ Page({
    * 页面的初始数据
    */
   data: {
-    category:[
-    ],
+    category: [],
     indicatorDots: true,
     vertical: false,
-    autoplay: false,
+    autoplay: true,
     interval: 2000,
     duration: 500,
-    bannerList:[]
+    bannerList: [],
+    news: [],
+    shopList:[]
   },
 
-  getCates(){
+  getCates() {
     wx.request({
       url: constant.apiUrl + '/web/dictionary/publish',
       complete: (res) => {},
       fail: (res) => {},
       method: "GET",
       success: (result) => {
-        const {data} = result;
+        const {
+          data
+        } = result;
         this.setData({
-          category:data.data
+          category: data.data
         })
-        
+
       },
     })
   },
-  getBanner(){
+  getBanner() {
     wx.request({
       url: constant.apiUrl + '/web/wechat/banner',
       complete: (res) => {},
       fail: (res) => {},
       method: "GET",
       success: (result) => {
-        const {data} = result;
+        const {
+          data
+        } = result;
         this.setData({
-          bannerList:data.data
+          bannerList: data.data
         })
-        
+
       },
     })
   },
-  clickCate(e){
+  goReqList(){
+    wx.navigateTo({
+      url: '../reqList/reqList',
+    })
+  },
+  getNews() {
+    wx.showLoading({
+      title: '加载中...'
+    })
+    wx.request({
+      url: constant.apiUrl + '/web/wechat/news',
+      complete: (res) => {
+        wx.hideLoading({
+          complete: (res) => {},
+        })
+      },
+      fail: (res) => {},
+      method: "GET",
+      success: (result) => {
+        const {
+          data
+        } = result;
+        this.setData({
+          news: data.data
+        })
+
+      },
+    })
+  },
+  getBusiness() {
+    wx.showLoading({
+      title: '加载中...'
+    })
+    wx.request({
+      url: constant.apiUrl + '/web/wechat/merchant?page=1&size=10&status=1',
+      complete: (res) => {
+        wx.hideLoading({
+          complete: (res) => {},
+        })
+      },
+      fail: (res) => {},
+      method: "GET",
+      success: (result) => {
+        const {
+          data
+        } = result;
+        this.setData({
+          shopList: data.data
+        })
+
+      },
+    })
+  },
+  goWeb(e) {
+    console.log(e);
+    
+    const {
+      currentTarget: {
+        dataset: {
+          url
+        }
+      }
+    } = e;
+    wx.navigateTo({
+      url: '../webView/view?url=' + url,
+    })
+  },
+  goReqDetail(e){
+    const {currentTarget:{dataset:{id}}} = e;
+    wx.navigateTo({
+      url: '../reqDetail/reqDetail?id='+id,
+    })
+  },
+  clickCate(e) {
     const {
       target: {
         dataset: {
@@ -54,9 +132,9 @@ Page({
         }
       }
     } = e;
-    
+
     wx.navigateTo({
-      url: '../send/send/send?code='+item.code,
+      url: '../send/send/send?code=' + item.code,
     })
   },
   changeIndicatorDots() {
@@ -82,6 +160,11 @@ Page({
       duration: e.detail.value
     })
   },
+  addShop(){
+    wx.navigateTo({
+      url: '../addShop/addShop',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -89,22 +172,24 @@ Page({
   onLoad: function (options) {
     this.getCates();
     this.getBanner();
+    this.getNews();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
+    this.getBusiness();
   },
-  onShareAppMessage(){
-    
+  onShareAppMessage() {
+
   }
 })

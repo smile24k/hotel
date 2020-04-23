@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "商户入驻",
+  "usingComponents": {
+    "mp-toptips": "../../components/toptips/toptips",
+    "mp-cells": "../../components/cells/cells",
+    "mp-form": "../../components/form/form",
+    
+    "mp-icon": "../../components/icon/icon",
+    
+    "mp-gallery": "../../components/gallery/gallery",
+    "mp-cell": "../../components/cell/cell"
+  }
+}

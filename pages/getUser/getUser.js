@@ -43,9 +43,10 @@ Page({
       method: "POST",
       success: (result) => {
         if(result.data.status == 200){
-
-          wx.switchTab({
-            url: '../send/sendData/sendData',
+          app.userData = result.data.data;
+          app.openId = result.data.data.openId;
+          wx.navigateBack({
+            delta: 1
           })
         }else{
           wx.showToast({

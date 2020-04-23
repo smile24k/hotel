@@ -1,0 +1,13 @@
+<!--pages/reqList/reqList.wxml-->
+<scroll-view class="scoll news" scroll-y="true" bindscrolltolower="lower">
+
+		<view data-id="{{item.id}}" bindtap="goReqDetail" class="news-list flex" wx:for="{{shopList}}" wx:key="id">
+			<image mode="aspectFill" src="{{item.images[0]}}"></image>
+			<view class="right">
+				<view class="title">{{item.name}}</view>
+				<view class="desc">
+					<text>{{item.description}}</text>
+				</view>
+			</view>
+		</view>
+</scroll-view>

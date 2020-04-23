@@ -40,6 +40,11 @@ App({
       this.getUserData(openId);
     }
     // 获取用户信息
+    this.getSetting();
+    
+  },
+
+  getSetting(cb1,cb2){
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
@@ -49,14 +54,16 @@ App({
               // 可以将 res 发送给后台解码出 unionId
               this.userInfo = res.userInfo;
               
-
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
               }
+              cb1 && typeof cb1 === 'function' && cb1(res.userInfo);
             }
           })
+        }else{
+          cb2 && typeof cb2 === 'function' && cb2(true);
         }
       }
     })

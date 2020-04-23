@@ -1,0 +1,14 @@
+/* pages/reqDetail/reqDetail.wxss */
+swiper{
+
+  height:180px;
+}
+.swiper-img{
+  height: 180px;
+  width: 100%;
+  
+}
+
+.header{
+  position: relative;
+}

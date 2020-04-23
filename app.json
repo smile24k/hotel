@@ -1,10 +1,14 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/reqList/reqList",
+    "pages/addShop/addShop",
+    "pages/send/sendData/sendData",
     "pages/getUser/getUser",
     "pages/send/send/send",
-    "pages/send/sendData/sendData",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/webView/view",
+    "pages/reqDetail/reqDetail"
   ],
   "tabBar": {
     "color": "#cdcdcd",

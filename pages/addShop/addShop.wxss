@@ -1,0 +1,49 @@
+/* pages/addShop/addShop.wxss */
+.add-shop{
+  padding-bottom: 100rpx;
+}
+.btn-fixed{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 100% !important;
+  height: 96rpx;
+  line-height: 96rpx;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: #333;
+  color: #fff;
+  border-radius: 0;
+}
+
+.lists{
+  flex-wrap: wrap;
+}
+.img-list{
+  width: 200rpx;
+  height: 200rpx;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40rpx;
+  margin-bottom: 30rpx;
+  flex-direction: column;
+}
+.img-list text{
+  color: #666;
+  font-size: 12px;
+}
+.img-list image{
+  width: 100%;
+  height: 100%;
+}
+.img-list:nth-child(3n+1){
+  margin-left: 0;
+}
+.top-tip{
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  color: #666;
+}
