@@ -2,7 +2,14 @@
 import constant from "./utils/constant";
 App({
   onLaunch: function () {
-    // 展示本地存储能力
+    this.getOpenId();
+    
+    // 获取用户信息
+    this.getSetting();
+    
+  },
+
+  getOpenId(cb){
     var openId = wx.getStorageSync('openId') || "";
     if(!openId){
       // 登录
@@ -27,6 +34,7 @@ App({
               if(openid){
                 wx.setStorageSync('openId', openid);
                 this.openId = openid;
+                cb && typeof cb === 'function' && cb(openid);
               }
               if(session_key){
                 wx.setStorageSync('sessionKey', session_key);
@@ -37,11 +45,9 @@ App({
       })
     }else{
       this.openId = openId;
+      cb && typeof cb === 'function' && cb(openId);
       this.getUserData(openId);
     }
-    // 获取用户信息
-    this.getSetting();
-    
   },
 
   getSetting(cb1,cb2){

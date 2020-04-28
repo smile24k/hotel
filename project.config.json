@@ -64,6 +64,19 @@
 					"pathName": "pages/reqDetail/reqDetail",
 					"query": "id=a645db19f320428e9f9aaa45350d864c",
 					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "pages/reqDetail/reqDetail",
+					"pathName": "pages/reqDetail/reqDetail",
+					"query": "id=cbaa4312fa7c4c9687ad2da8eef3eb81",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/send/send/send",
+					"pathName": "pages/send/send/send",
+					"scene": null
 				}
 			]
 		}

@@ -117,3 +117,22 @@ page{
   color: #999;
   text-align: center;
 }
+.share-btn{
+  padding:0 !important;
+  width: auto !important;
+  margin: 0  !important;
+  height: auto !important;
+  border: none !important;
+  line-height: 48rpx !important;
+  height: 48rpx !important;
+  min-height: 0 !important;
+}
+.action{
+
+  margin-top: 30rpx;
+}
+.action .w32{
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 30rpx;
+}

@@ -2,7 +2,7 @@
 const app =getApp();
 import {
   getArea,
-  getCategory,
+  getAddCategory,
   batchUpload,
 } from "../../utils/common";
 import constant from "../../utils/constant";
@@ -65,9 +65,6 @@ Page({
       rules: [{
         required: true,
         message: '请填写手机号'
-      }, {
-        mobile: true,
-        message: '手机格式不正确'
       }],
     }]
   },
@@ -257,7 +254,7 @@ Page({
         accounts: data.data
       })
     });
-    getCategory(data => {
+    getAddCategory(data => {
       this.setData({
         cateList: data.data,
         category: data.data[0].code

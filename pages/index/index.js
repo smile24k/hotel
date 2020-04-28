@@ -81,9 +81,6 @@ Page({
     })
   },
   getBusiness() {
-    wx.showLoading({
-      title: '加载中...'
-    })
     wx.request({
       url: constant.apiUrl + '/web/wechat/merchant?page=1&size=10&status=1',
       complete: (res) => {

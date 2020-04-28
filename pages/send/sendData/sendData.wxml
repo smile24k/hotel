@@ -10,34 +10,20 @@
 		<mp-form id="form" rules="{{rules}}" models="{{formData}}">
 
 			<mp-cells>
-				<mp-cell title="类别" ext-class="area">
-					<view class="weui-cell weui-cell_select">
-						<view class="weui-cell__bd">
-							<picker bindchange="bindCateChange" value="{{cateIndex}}" range-key="name" range="{{cateList}}">
-								<view class="weui-select">{{cateList[cateIndex].name}}</view>
+				<mp-cell link title="类别">
+					<picker bindchange="bindCateChange" value="{{cateIndex}}" range-key="name" range="{{cateList}}">
+								<view class="weui-input">{{cateList[cateIndex].name}}</view>
 							</picker>
-						</view>
-					</view>
 				</mp-cell>
-                <mp-cell title="区域" ext-class="area">
-					<view class="weui-cell weui-cell_select">
-						<view class="weui-cell__bd">
-							<picker bindchange="bindAccountChange" value="{{accountIndex}}" range-key="name" range="{{accounts}}">
-								<view class="weui-select">{{accounts[accountIndex].name}}</view>
+                <mp-cell link title="区域">
+					<picker bindchange="bindAccountChange" value="{{accountIndex}}" range-key="name" range="{{accounts}}">
+								<view class="weui-input">{{accounts[accountIndex].name}}</view>
 							</picker>
-						</view>
-					</view>
 				</mp-cell>
-
-
-				<view class="weui-cells weui-cells_after-title">
-					<view class="weui-cell">
-						<view class="weui-cell__bd">
-							<textarea class="weui-textarea" maxlength="200"  bindinput="formInputChange" data-field="description" placeholder="请输入文本" style="height: 3.3em" />
+                <mp-cell>
+                    <textarea class="weui-textarea" maxlength="200"  bindinput="formInputChange" data-field="description" placeholder="请输入文本" style="height: 3.3em" />
 							<view class="weui-textarea-counter">{{formData.description.length || 0}}/200</view>
-                </view>
-            </view>
-        </view>
+                </mp-cell>
             <mp-cell>
                 <view class="top-tip flex ">
                     <text>上传图片</text>

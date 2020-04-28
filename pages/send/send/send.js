@@ -1,3 +1,4 @@
+const app = getApp();
 import {
   getArea,
   getCategory,
@@ -41,7 +42,8 @@ Page({
     hasMore: true,
     area: "",
     category: "",
-    sendList: []
+    sendList: [],
+    zanLoading:false
   },
 
   bindMultiPickerChange: function (e) {
@@ -152,6 +154,14 @@ Page({
       areaList,
       areaIndex
     } = this.data;
+    const {openId} = app;
+
+    if(!openId){
+      app.getOpenId(id => {
+        this.getSendList();
+      })
+      return;
+    }
     if (!hasMore) {
       return;
     }
@@ -161,7 +171,7 @@ Page({
     })
     let area = areaList[areaIndex].code;
     wx.request({
-      url: `${constant.apiUrl}/web/wechat/publish?page=${page}&size=${size}&area=${area}&category=${category}`,
+      url: `${constant.apiUrl}/web/wechat/publish?page=${page}&size=${size}&area=${area}&category=${category}&lookOpenId=${openId}`,
       // url: `${constant.apiUrl}/web/wechat/publish?page=${page}&size=${size}`,
       complete: (res) => {
         wx.hideLoading({
@@ -198,5 +208,43 @@ Page({
     } = e;
 
     preview(images, index);
+  },
+  zan(e){
+    const {target:{dataset:{item:{id},index}}} = e;
+    const {openId} = app;
+    const {zanLoading,sendList} = this.data;
+    if(zanLoading){
+      return;
+    }
+    this.setData({
+      zanLoading:true
+    })
+    const postData = {
+      openId,
+      relationId:id,
+      type:1,//1点赞,0取消
+      category:"publish"
+    };
+    wx.request({
+      url: `${constant.apiUrl}/web/wechat/appreciate`,
+      complete: (res) => {
+        sendList[index].appreciate.flag = 1;
+
+        
+        this.setData({
+          zanLoading:false,
+          sendList:sendList
+        })
+      },
+      data:postData,
+      fail: (res) => {},
+      method: "POST",
+      success: (result) => {
+        if (result.data.status == 200) {
+          
+        }
+      },
+    })
+    
   }
 })

@@ -7,7 +7,7 @@
 			<mp-cell prop="name" title="商家名称" ext-class="">
 				<input bindinput="formInputChange" data-field="name" class="weui-input" placeholder="请输入商家名称" />
 			</mp-cell>
-			<mp-cell prop="qq" title="商家地区" ext-class="">
+			<mp-cell link title="商家地区" ext-class="">
 				<picker bindchange="bindAccountChange" value="{{accountIndex}}" range-key="name" range="{{accounts}}">
 				<view class="weui-input">{{accounts[accountIndex].name}}</view>
 							</picker>
@@ -15,12 +15,12 @@
 			<mp-cell prop="address" title="详细地址" ext-class="">
 				<input bindinput="formInputChange" data-field="address" class="weui-input" placeholder="请输入详细地址" />
 			</mp-cell>
-			<mp-cell prop="qq" title="所属行业" ext-class="">
+			<mp-cell link title="所属行业" ext-class="">
 				<picker bindchange="bindCateChange" value="{{cateIndex}}" range-key="name" range="{{cateList}}">
 					<view class="weui-input">{{cateList[cateIndex].name}}</view>
 				</picker>
 			</mp-cell>
-			<mp-cell prop="qq" title="营业时间" ext-class="">
+			<mp-cell link title="营业时间" ext-class="">
 				<picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
 					<view class="weui-input">
 						{{multiArray[0][multiIndex[0]]}} - {{multiArray[1][multiIndex[1]]}}
@@ -31,14 +31,8 @@
 				<input bindinput="formInputChange" type="number" data-field="mobile" class="weui-input" placeholder="请输入联系电话" />
 			</mp-cell>
 			<mp-cell>
-			<view class="weui-cells weui-cells_after-title">
-				<view class="weui-cell">
-					<view class="weui-cell__bd">
-						<textarea bindinput="formInputChange"  data-field="description" maxlength="200" class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" />
+			<textarea bindinput="formInputChange"  data-field="description" maxlength="200" class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" />
 						<view class="weui-textarea-counter">{{formData.description.length || 0}}/200</view>
-                </view>
-            </view>
-        </view>
 			</mp-cell>
 			
 

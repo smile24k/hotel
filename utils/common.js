@@ -38,6 +38,23 @@ export function getCategory(cb){
     },
   })
 }
+export function getAddCategory(cb){
+  
+  wx.request({
+    url: constant.apiUrl + '/web/dictionary/publish_add',
+    complete: (res) => {},
+    fail: (res) => {},
+    method: "GET",
+    success: (result) => {
+      const {data} = result;
+
+      if(cb && typeof cb === 'function'){
+        cb(data)
+      }
+      
+    },
+  })
+}
 
 
 

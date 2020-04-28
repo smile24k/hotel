@@ -1,7 +1,7 @@
 let app = getApp();
 import {
   getArea,
-  getCategory,
+  getAddCategory,
   batchUpload,
   preview
 } from "../../../utils/common";
@@ -27,9 +27,6 @@ Page({
       rules: [{
         required: true,
         message: '手机号必填'
-      }, {
-        mobile: true,
-        message: '手机号格式不对'
       }],
     }],
   },
@@ -176,7 +173,7 @@ Page({
         accounts: data.data
       })
     });
-    getCategory(data => {
+    getAddCategory(data => {
       this.setData({
         cateList: data.data,
         category: data.data[0].code

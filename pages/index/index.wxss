@@ -139,13 +139,13 @@ input{
 }
 .scroll-lists .scroll-list{
   display: inline-block;
-  width: 160rpx;
+  width: 200rpx;
   margin-left: 30rpx;
 
 }
 .scroll-lists .scroll-list image{
-  width: 160rpx;
-  height: 160rpx;
+  width: 200rpx;
+  height: 200rpx;
   border-radius: 6px;
 }
 .scroll-lists .scroll-list .text{
@@ -155,6 +155,7 @@ input{
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #666;
+  text-align: center;
 
 }
 .add-btn{

@@ -13,4 +13,11 @@
         </block>
       </swiper>
     </view>
+    <mp-cells ext-class="my-cells" title="">
+      <mp-cell value="商户名" footer="{{detail.name}}"></mp-cell>
+      <mp-cell value="营业时间" footer="{{detail.businessTime}}"></mp-cell>
+      <mp-cell bindtap="phone" link value="联系电话" footer="{{detail.mobile}}"></mp-cell>
+      <mp-cell  value="详情" footer="{{detail.description}}"></mp-cell>
+    </mp-cells>
+    <button class="btn-fixed"  bindtap="submitForm">加入商圈</button>
 	</view>

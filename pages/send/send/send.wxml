@@ -59,6 +59,16 @@
       <scroll-view class="images flex-view_H" scroll-x="true">
         <image bindtap="showImg" data-index="{{idx}}" data-images="{{item.images}}"  mode="aspectFill" src="{{list}}"  wx:for-index="idx" wx:for-item="list" wx:for="{{item.images}}" wx:key="idx"></image>
       </scroll-view>
+			<view class="action flex">
+
+				<button plain class="share-btn" open-type="share">
+					<image class="w32" src="../../../image/share.png"></image>
+				</button>
+			
+				
+				<image wx-if="{{!item.appreciate.flag}}" data-item="{{item}}" data-index="{{index}}" bindtap="zan" class="w32" src="../../../image/d_zan.png"></image>
+				<image wx-if="{{item.appreciate.flag}}" class="w32" src="../../../image/d_zan_HL.png"></image>
+			</view>
     </view>
 
     <view wx:if="{{!hasMore}}" class="center">到底了哦~</view>
