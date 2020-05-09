@@ -16,3 +16,11 @@
   justify-content: flex-start;
   align-items: center;
 }
+.fixed-bottom-btn{
+  position: fixed;
+  width: 100%;
+  
+  left: 0;
+  bottom: 0;
+
+}

@@ -8,7 +8,8 @@
     "pages/send/send/send",
     "pages/logs/logs",
     "pages/webView/view",
-    "pages/reqDetail/reqDetail"
+    "pages/reqDetail/reqDetail",
+    "pages/send/sendDetail/sendDetail"
   ],
   "tabBar": {
     "color": "#cdcdcd",

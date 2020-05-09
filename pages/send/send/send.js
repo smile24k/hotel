@@ -43,7 +43,8 @@ Page({
     area: "",
     category: "",
     sendList: [],
-    zanLoading:false
+    zanLoading:false,
+    openId:''
   },
 
   bindMultiPickerChange: function (e) {
@@ -162,6 +163,9 @@ Page({
       })
       return;
     }
+    this.setData({
+      openId
+    })
     if (!hasMore) {
       return;
     }
@@ -209,6 +213,17 @@ Page({
 
     preview(images, index);
   },
+  goSendData(){
+    wx.switchTab({
+      url: '../sendData/sendData',
+    })
+  },
+  goDetail(e){
+    const {currentTarget:{dataset:{id}}} = e;
+    wx.navigateTo({
+      url: '../sendDetail/sendDetail?id='+id,
+    })
+  },
   zan(e){
     const {target:{dataset:{item:{id},index}}} = e;
     const {openId} = app;
@@ -245,6 +260,41 @@ Page({
         }
       },
     })
+    
+  },
+  delList(e){
+    const {target:{dataset:{item:{id},index}}} = e;
+    const postData = {
+    };
+    let that = this;
+
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗',
+      success (res) {
+        if (res.confirm) {
+          wx.request({
+            url: `${constant.apiUrl}/web/wechat/publish/${id}`,
+            complete: (res) => {
+            },
+            data:postData,
+            fail: (res) => {},
+            method: "DELETE",
+            success: (result) => {
+              if (result.data.status == 200) {
+                that.data.sendList.splice(index,1);
+                that.setData({
+                  sendList:that.data.sendList
+                })
+              }
+            },
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    
     
   }
 })

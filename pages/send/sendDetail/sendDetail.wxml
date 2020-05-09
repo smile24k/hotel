@@ -1,0 +1,36 @@
+<scroll-view class="content"  scroll-y="true" bindscrolltolower="getSendList" lower-threshold="100">
+    <view class="send-list">
+      <view class="send-top flex">
+        <view class="left flex">
+          <image mode="widthFix" src="{{sendDetail.user.avatar}}"></image>
+          <text>{{sendDetail.name}}</text>
+        </view>
+      </view>
+      <view class="desc">
+        <text>{{sendDetail.description}}</text>
+      </view>
+
+      <view class="images flex-view_H">
+        <image bindtap="showImg" data-index="{{idx}}" data-images="{{sendDetail.images}}"  mode="aspectFill" src="{{list}}"  wx:for-index="idx" wx:for-item="list" wx:for="{{sendDetail.images}}" wx:key="idx"></image>
+      </view>
+			<view class="action flex">
+
+				<button plain class="share-btn" open-type="share">
+					<image class="w32" src="../../../image/share.png"></image>
+				</button>
+			
+				
+				<image wx-if="{{!sendDetail.appreciate.flag}}" data-index="{{index}}" bindtap="zan" class="w32" src="../../../image/d_zan.png"></image>
+				<image wx-if="{{sendDetail.appreciate.flag}}" class="w32" src="../../../image/d_zan_HL.png"></image>
+				<text class="zan-text" wx-if="{{sendDetail.appreciate.count > 0}}">{{sendDetail.appreciate.count}}人已点赞</text>
+			</view>
+    </view>
+    <mp-cell  ext-class="text-area">
+                    <textarea class="weui-textarea" maxlength="200"  bindinput="formInputChange" data-field="description" placeholder="评论..." style="height: 3.3em" />
+                </mp-cell>
+
+                <button class="fixed-bottom-btn" plain="true">留下你的建议</button>
+		<!-- <cover-view bindtap="goSendData" class="cover">
+			<cover-image class="c-image" src="../../../image/send_HL.png"></cover-image>
+		</cover-view> -->
+  </scroll-view>

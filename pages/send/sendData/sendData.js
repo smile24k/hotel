@@ -147,9 +147,13 @@ Page({
           title: '发布成功',
           icon: 'none'
         })
-        wx.switchTab({
-          url: '../../index/index',
+        wx.navigateTo({
+          url: '../send/send?code=' + formData.category,
         })
+
+        // wx.switchTab({
+        //   url: '../../index/index',
+        // })
       },
     })
   },

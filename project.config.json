@@ -76,6 +76,14 @@
 					"id": -1,
 					"name": "pages/send/send/send",
 					"pathName": "pages/send/send/send",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/sendDetail",
+					"pathName": "pages/send/sendDetail/sendDetail",
+					"query": "id=8740cf0970e74ce2b9903336b9ecf5d4",
 					"scene": null
 				}
 			]
