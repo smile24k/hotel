@@ -85,6 +85,26 @@
 					"pathName": "pages/send/sendDetail/sendDetail",
 					"query": "id=8740cf0970e74ce2b9903336b9ecf5d4",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my",
+					"pathName": "pages/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布回复",
+					"pathName": "pages/message/messageList/messageList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/reqList/reqList",
+					"pathName": "pages/reqList/reqList",
+					"scene": null
 				}
 			]
 		}

@@ -56,6 +56,24 @@ export function getAddCategory(cb){
   })
 }
 
+export function getMerchantCategory(cb){
+  
+  wx.request({
+    url: constant.apiUrl + '/web/dictionary/merchant',
+    complete: (res) => {},
+    fail: (res) => {},
+    method: "GET",
+    success: (result) => {
+      const {data} = result;
+
+      if(cb && typeof cb === 'function'){
+        cb(data)
+      }
+      
+    },
+  })
+}
+
 
 
 export function preview(images,index){

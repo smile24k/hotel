@@ -9,7 +9,9 @@
     "pages/logs/logs",
     "pages/webView/view",
     "pages/reqDetail/reqDetail",
-    "pages/send/sendDetail/sendDetail"
+    "pages/send/sendDetail/sendDetail",
+    "pages/my/my",
+    "pages/message/messageList/messageList"
   ],
   "tabBar": {
     "color": "#cdcdcd",
@@ -30,7 +32,7 @@
         "text": "发布"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/my/my",
         "iconPath": "image/my.png",
         "selectedIconPath": "image/my_HL.png",
         "text": "我的"

@@ -12,7 +12,12 @@ Page({
   data: {
     sendDetail:{},
     zanLoading:false,
-    description:""
+    description:"",
+    mask:false,
+    content:"",
+    orderId:"",
+    sender:{},
+    openId:""
   },
 
   /**
@@ -20,11 +25,18 @@ Page({
    */
   onLoad: function (options) {
     if(options.id){
+      this.setData({
+        orderId:options.id
+      })
 
       this.getSendDetailById(options.id);
     }
   },
-
+  setContent(e){
+    this.setData({
+      content:e.detail.value
+    })
+  },
   getSendDetailById(id){
     const {openId} = app;
 
@@ -34,6 +46,9 @@ Page({
       })
       return;
     }
+    this.setData({
+      openId
+    })
     wx.request({
       url: `${constant.apiUrl}/web/wechat/publish/${id}?lookOpenId=${openId}`,
       complete: (res) => {
@@ -148,6 +163,104 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+
+  },
+  showMask(){
+    let user = app.userData || app.userInfo;
+    if(!user.avatar){
+      wx.showModal({
+        complete: (res) => {},
+        confirmText: '确定',
+        showCancel:false,
+        content: '请授权后进行评论',
+        fail: (res) => {},
+        success: (result) => {
+          wx.navigateTo({
+            url: '../../getUser/getUser'
+          })
+        },
+        title: '提示',
+      })
+      return;
+    }
+    const {openId} = app;
+    if(!user.openId){
+      user.openId = openId;
+    }
+    this.setData({
+      sender:user,
+      mask:true
+    })
+  },
+  closeModal(){
+    this.setData({
+      mask:false
+    })
+  },
+  commit(){
+    const {content,orderId,sender,sendDetail:{id}} = this.data;
+    if(!content){
+      this.setData({
+        mask:false
+      })
+      return;
+    }
+    const postData = {
+      category:"publish",
+      content,
+      relationId:id,
+      sender
+    }
+    
+
+    wx.request({
+      url: `${constant.apiUrl}/web/wechat/comment`,
+      complete: (res) => {
+      },
+      data:postData,
+      fail: (res) => {},
+      method: "POST",
+      success: (result) => {
+        if (result.data.status == 200) {
+          wx.showToast({
+            title: '评论成功',
+            icon:'none'
+          })
+          this.getSendDetailById(orderId);
+          this.setData({
+            mask:false
+          })
+        }
+      },
+    })
+
+  },
+  delete(e){
+    const {currentTarget:{dataset:{id}}} = e;
+    const {orderId} = this.data;
+
+    const postData = {
+    }
+
+    
+
+    wx.request({
+      url: `${constant.apiUrl}/web/wechat/comment/${id}`,
+      complete: (res) => {
+      },
+      data:postData,
+      fail: (res) => {},
+      method: "DELETE",
+      success: (result) => {
+        if (result.data.status == 200) {
+          wx.showToast({
+            title: '删除成功',
+            icon:'none'
+          })
+          this.getSendDetailById(orderId);
+        }
+      },
+    })
 
   }
 })

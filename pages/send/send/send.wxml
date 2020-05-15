@@ -2,7 +2,7 @@
 <view class="send-page">
 
 
-	<view class="header">
+	<view class="header" wx-if="{{!isMy}}">
 		<view class="list">
 			<picker bindchange="bindMultiPickerChange" data-type="area" bindcolumnchange="bindMultiPickerColumnChange" range-key="name" value="{{areaIndex}}" range="{{areaList}}">
 				<view class="picker">

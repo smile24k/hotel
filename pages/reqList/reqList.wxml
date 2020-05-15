@@ -1,5 +1,10 @@
 <!--pages/reqList/reqList.wxml-->
-<scroll-view class="scoll news" scroll-y="true" bindscrolltolower="lower">
+<view class="reqs flex">
+	<scroll-view class="scoll cate" scroll-y="true">
+		<view data-index="{{index}}" bindtap="setCateIndex" class="list {{cateIndex == index ? 'active':''}}" wx:for="{{cateList}}">{{item.name}}</view>
+	</scroll-view>
+
+	<scroll-view class="scoll news" scroll-y="true" bindscrolltolower="lower">
 
 		<view data-id="{{item.id}}" bindtap="goReqDetail" class="news-list flex" wx:for="{{shopList}}" wx:key="id">
 			<image mode="aspectFill" src="{{item.images[0]}}"></image>
@@ -10,4 +15,5 @@
 				</view>
 			</view>
 		</view>
-</scroll-view>
+	</scroll-view>
+</view>

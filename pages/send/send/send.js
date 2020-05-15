@@ -44,7 +44,8 @@ Page({
     category: "",
     sendList: [],
     zanLoading:false,
-    openId:''
+    openId:'',
+    isMy:false
   },
 
   bindMultiPickerChange: function (e) {
@@ -114,6 +115,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(options.isMy){
+
+      this.setData({
+        isMy:true
+      },function(){
+
+        this.getSendList();
+      })
+
+      return;
+    }
     getArea(data => {
       let index = 0;
       
@@ -153,7 +165,8 @@ Page({
       sendList,
       hasMore,
       areaList,
-      areaIndex
+      areaIndex,
+      isMy
     } = this.data;
     const {openId} = app;
 
@@ -173,10 +186,17 @@ Page({
       title: '加载中...',
       mask: true
     })
-    let area = areaList[areaIndex].code;
+    let url = "";
+    
+    if(!isMy){
+      let area = areaList[areaIndex].code;
+      url = `${constant.apiUrl}/web/wechat/publish?page=${page}&size=${size}&area=${area}&category=${category}&lookOpenId=${openId}`;
+    }else{
+      url = `${constant.apiUrl}/web/wechat/publish?page=${page}&size=${size}&lookOpenId=${openId}&openId=${openId}`;
+
+    }
     wx.request({
-      url: `${constant.apiUrl}/web/wechat/publish?page=${page}&size=${size}&area=${area}&category=${category}&lookOpenId=${openId}`,
-      // url: `${constant.apiUrl}/web/wechat/publish?page=${page}&size=${size}`,
+      url,
       complete: (res) => {
         wx.hideLoading({
           complete: (res) => {},

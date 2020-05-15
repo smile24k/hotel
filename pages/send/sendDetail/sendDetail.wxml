@@ -20,17 +20,36 @@
 				</button>
 			
 				
+				<image data-index="{{index}}" bindtap="showMask" class="w32" src="../../../image/comments.png"></image>
 				<image wx-if="{{!sendDetail.appreciate.flag}}" data-index="{{index}}" bindtap="zan" class="w32" src="../../../image/d_zan.png"></image>
 				<image wx-if="{{sendDetail.appreciate.flag}}" class="w32" src="../../../image/d_zan_HL.png"></image>
 				<text class="zan-text" wx-if="{{sendDetail.appreciate.count > 0}}">{{sendDetail.appreciate.count}}人已点赞</text>
 			</view>
     </view>
-    <mp-cell  ext-class="text-area">
-                    <textarea class="weui-textarea" maxlength="200"  bindinput="formInputChange" data-field="description" placeholder="评论..." style="height: 3.3em" />
-                </mp-cell>
+    <view class="comments">
+      <view class="content-list" wx:for="{{sendDetail.comments}}">
+        <view class="top flex">
+          <image src="{{item.sender.avatar}}"></image>
+          <text class="nick-name">{{item.sender.nickName}}</text>
+        </view>
+        <view class="content">
+          <text>{{item.content}}</text>
+        </view>
 
-                <button class="fixed-bottom-btn" plain="true">留下你的建议</button>
+        <view wx-if="{{item.openId == openId}}" class="delete">
+          <text bindtap="delete" data-id="{{item.id}}">删除</text>
+        </view>
+
+      </view>
+    </view>
+
 		<!-- <cover-view bindtap="goSendData" class="cover">
 			<cover-image class="c-image" src="../../../image/send_HL.png"></cover-image>
 		</cover-view> -->
   </scroll-view>
+
+  <view wx-if="{{mask}}" class="mask" catchtouchmove catchtap="closeModal">
+    <view class="mask-content">
+       <textarea bindconfirm="commit" value="{{content}}" bindinput="setContent" catchtap class="weui-textarea" maxlength="200" auto-focus="true" fixed="true" cursor-spacing="200" placeholder="评论..." />
+    </view>
+  </view>

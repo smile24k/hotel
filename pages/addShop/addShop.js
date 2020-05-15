@@ -2,7 +2,7 @@
 const app =getApp();
 import {
   getArea,
-  getAddCategory,
+  getMerchantCategory,
   batchUpload,
 } from "../../utils/common";
 import constant from "../../utils/constant";
@@ -254,7 +254,7 @@ Page({
         accounts: data.data
       })
     });
-    getAddCategory(data => {
+    getMerchantCategory(data => {
       this.setData({
         cateList: data.data,
         category: data.data[0].code

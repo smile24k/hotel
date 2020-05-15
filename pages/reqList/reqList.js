@@ -1,5 +1,6 @@
 // pages/reqList/reqList.js
 import constant from "../../utils/constant";
+import {getMerchantCategory} from "../../utils/common"
 Page({
 
   /**
@@ -11,7 +12,8 @@ Page({
     page:1,
     hasMore:true,
     size:10,
-    loading:false
+    loading:false,
+    cateIndex:0
 
   },
 
@@ -19,10 +21,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getBusiness();
-  },
-  getBusiness() {
 
+    getMerchantCategory(function (data){
+      this.setData({
+        cateList:data.data
+      })
+      if(data.data.length){
+
+        this.getBusiness(data.data[0].code);
+      }
+    }.bind(this))
+  },
+  getBusiness(code) {
+    if(!code){
+      return;
+    }
     const {page,size,hasMore,loading} = this.data;
     if(loading || !hasMore){
       return;
@@ -33,7 +46,7 @@ Page({
     this.setData({
       loading:true
     })
-    const url = `${constant.apiUrl}/web/wechat/merchant?status=1&page=${page}&size=${size}`
+    const url = `${constant.apiUrl}/web/wechat/merchant?status=1&page=${page}&size=${size}&category=${code}`
     wx.request({
       url: url,
       complete: (res) => {
@@ -57,8 +70,23 @@ Page({
       },
     })
   },
+  setCateIndex(e){
+    const {cateList} = this.data;
+    const {target:{dataset:{index}}} = e;
+    this.setData({
+      cateIndex:index,
+      page:1,
+      hasMore:true,
+      loading:false,
+      shopList:[]
+    })
+
+    this.getBusiness(cateList[index].code);
+
+  },
   lower(){
-    this.getBusiness();
+    const {cateList,cateIndex} = this.data;
+    this.getBusiness(cateList[cateIndex].code);
 
   },
   goReqDetail(e){
