@@ -8,6 +8,8 @@ App({
     this.getSetting();
     
   },
+  onShow:function(){
+  },
 
   getOpenId(cb){
     var openId = wx.getStorageSync('openId') || "";
@@ -75,7 +77,7 @@ App({
     })
   },
 
-  getUserData(openId){
+  getUserData(openId,cb){
     wx.request({
       url: constant.apiUrl + "/web/wechat/user/auth/"+openId,
       complete: (res) => {},
@@ -84,6 +86,31 @@ App({
       method: "POST",
       success: (result) => {
         this.userData = result.data.data;
+        cb && typeof cb === 'function' && cb(result.data.data);
+        
+      },
+    })
+  },
+  getAuth(cb) {
+    wx.request({
+      url: constant.apiUrl + '/web/wechat/map/wechat:menu',
+      complete: (res) => {
+        wx.hideLoading({
+          complete: (res) => {},
+        })
+      },
+      fail: (res) => {},
+      method: "GET",
+      success: (result) => {
+       const {data} = result;
+       console.log(data);
+       
+       if(data.data){
+         cb(true);
+       }else{
+        cb(false);
+       }
+
       },
     })
   },
@@ -92,5 +119,6 @@ App({
   },
   openId:"",
   userInfo:{},
-  userData:{}
+  userData:{},
+  showPublishFlag:false
 })

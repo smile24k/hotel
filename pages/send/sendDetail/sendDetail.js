@@ -1,8 +1,10 @@
 // pages/send/sendDetail/sendDetail.js
 const app = getApp();
 import constant from "../../../utils/constant";
+
 import {
-  preview
+  preview,
+  addPoints
 } from "../../../utils/common";
 Page({
 
@@ -163,6 +165,13 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    const {openId} = app;
+    const obj = {
+      openId,
+      points:2,
+      orderId:this.data.orderId
+    }
+    addPoints(obj);
 
   },
   showMask(){

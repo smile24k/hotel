@@ -73,6 +73,24 @@ export function getMerchantCategory(cb){
     },
   })
 }
+export function addPoints(obj){
+  const {openId} = obj;
+  if(!openId){
+    return;
+  }
+  wx.request({
+    url: constant.apiUrl + '/web/wechat/user/points',
+    complete: (res) => {},
+    fail: (res) => {},
+    method: "POST",
+    data:obj,
+    success: (result) => {
+      
+      
+    },
+  })
+}
+
 
 
 

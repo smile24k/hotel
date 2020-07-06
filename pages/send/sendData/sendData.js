@@ -86,6 +86,7 @@ Page({
       })
   },
   submitForm() {
+    
     let user = app.userData || app.userInfo;
     if(!user.avatar){
       wx.showModal({
@@ -112,6 +113,7 @@ Page({
       ['formData.categoryText']: cateList[cateIndex].name
     })
     this.selectComponent('#form').validate((valid, errors) => {
+      
       console.log('valid', valid, errors)
       if (!valid) {
         const firstError = Object.keys(errors)
@@ -147,7 +149,8 @@ Page({
           title: '发布成功',
           icon: 'none'
         })
-        wx.navigateTo({
+
+        wx.redirectTo({
           url: '../send/send?code=' + formData.category,
         })
 
@@ -155,6 +158,13 @@ Page({
         //   url: '../../index/index',
         // })
       },
+    })
+  },
+  subscrib(){
+    wx.requestSubscribeMessage({
+      tmplIds: ['ZHo6XbfKfaS0CM0qsMs5R7wSYFOkCYSUmCLhVe-az0w'],
+      success (res) {
+       }
     })
   },
   onLoad() {
@@ -183,6 +193,7 @@ Page({
         category: data.data[0].code
       })
     });
+    
   },
   chooseImage: function (e) {
     var that = this;

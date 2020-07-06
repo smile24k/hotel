@@ -1,0 +1,6 @@
+<!--pages/message/sendMsg/sendMsg.wxml-->
+
+<view class="send-msg">
+  <textarea maxlength="200" value="{{content}}" bindinput="setContent" placeholder="{{'@'+name}}"></textarea>
+</view>
+<button bindtap="saveData" class="btn">发送</button>

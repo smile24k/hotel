@@ -11,7 +11,14 @@
     "pages/reqDetail/reqDetail",
     "pages/send/sendDetail/sendDetail",
     "pages/my/my",
-    "pages/message/messageList/messageList"
+    "pages/message/messageList/messageList",
+    "pages/myData/myData",
+    "pages/message/sendMsg/sendMsg",
+    "pages/message/privateMsgList/privateMsgList",
+    "pages/workList/workList",
+    "pages/webView/copyLink/copyLink",
+    "pages/webView/server/server",
+    "pages/userRule/userRule"
   ],
   "tabBar": {
     "color": "#cdcdcd",
@@ -26,10 +33,10 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/send/sendData/sendData",
-        "iconPath": "image/send.png",
-        "selectedIconPath": "image/send_HL.png",
-        "text": "发布"
+        "pagePath": "pages/webView/server/server",
+        "iconPath": "image/server.png",
+        "selectedIconPath": "image/server_HL.png",
+        "text": "客服"
       },
       {
         "pagePath": "pages/my/my",

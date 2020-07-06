@@ -2,7 +2,7 @@
     <view class="send-list">
       <view class="send-top flex">
         <view class="left flex">
-          <image mode="widthFix" src="{{sendDetail.user.avatar}}"></image>
+          <image mode="aspectFill" src="{{sendDetail.user.avatar}}"></image>
           <text>{{sendDetail.name}}</text>
         </view>
       </view>

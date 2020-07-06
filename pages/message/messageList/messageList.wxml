@@ -12,4 +12,6 @@
       <image wx-if="{{item.target.images.length}}" src="{{item.target.images[0]}}"></image>
     </view>
   </view>
+
+  <view wx-if="{{!hasMore || !messageList.length}}" class="gray-contetent flex">~哇哦到底了~</view>
 </scroll-view>

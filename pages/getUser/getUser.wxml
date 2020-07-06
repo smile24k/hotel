@@ -1,5 +1,5 @@
 <view class="user-page">
-<text>发布之前需要您授权获取你的昵称头像,以保证发布后可被查看,请点击下方按钮进行授权</text>
+<text>为了更好的用户体验,需要您授权获取你的昵称头像,请点击下方按钮进行授权</text>
 
 <view class="weui-btn-area">
             <button class="weui-btn" type="primary" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">确定</button>

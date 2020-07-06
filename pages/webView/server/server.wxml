@@ -1,0 +1,8 @@
+<view class="server">
+  <view>
+  
+  <image mode="widthFix" src="https://m.nimar.cn/file/image/service-qrcode.jpg"></image>
+
+  </view>
+  <view>截图保存二维码后加客服微信</view>
+</view>

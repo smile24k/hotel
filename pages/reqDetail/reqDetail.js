@@ -1,4 +1,5 @@
 // pages/reqDetail/reqDetail.js
+const app = getApp();
 import constant from "../../utils/constant";
 import {preview} from "../../utils/common";
 Page({
@@ -13,6 +14,7 @@ Page({
     autoplay: true,
     interval: 2000,
     duration: 500,
+    showPublishFlag:false
   },
   getDetail(id) {
     wx.request({
@@ -66,7 +68,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    app.getAuth(res => {
+      this.setData({
+        showPublishFlag:res
+      })
+    })
   },
 
   /**

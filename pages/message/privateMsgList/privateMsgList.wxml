@@ -1,0 +1,14 @@
+<!--pages/message/messageList/messageList.wxml-->
+<scroll-view class="msgs" scroll-y="true"  bindscrolltolower="lower">
+  <view data-id="{{item.target.id}}" class="list flex" wx:for="{{messageList}}" :key="id">
+    <view class="avatar">
+      <image src="{{item.sender.avatar}}"></image>
+    </view>
+    <view class="name-replay">
+      <view class="name">{{item.sender.nickName}}</view>
+      <view>{{item.content}}</view>
+    </view>
+  </view>
+
+  <view wx-if="{{!hasMore || !messageList.length}}" class="gray-contetent flex">~哇哦到底了~</view>
+</scroll-view>

@@ -9,7 +9,7 @@
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
         <block wx:for="{{bannerList}}" wx:key="*this">
           <swiper-item>
-            <image mode="widthFix" class="swiper-img" src="{{item}}"></image>
+            <image bindtap="showImg" data-index="{{index}}" mode="widthFix" class="swiper-img" src="{{item}}"></image>
           </swiper-item>
         </block>
       </swiper>
@@ -25,7 +25,7 @@
 	</view>
 	<view class="scroll-wrap">
 		<view class="scoll-top">
-			<text>热门商家</text>
+			<text class="header-title" style="padding-left:0;">热门商家</text>
 			<text class="m-right" bindtap="goReqList">More></text>
 		</view>
 		<scroll-view class="scroll-lists" scroll-x="true">
@@ -36,12 +36,46 @@
 				</view>
 				<view class="text">{{item.name}}</view>
 			</view>
-			<view bindtap="addShop" class="add-btn">
+			<view wx:if="{{showPublishFlag}}" bindtap="addShop" class="add-btn">
 				加入商圈
 			</view>
 		</scroll-view>
 	</view>
+	<view class="gray-line"></view>
+	<view class="news works">
+		<view class="flex" style="padding-right:24rpx;">
+			<text class="header-title">乐器商城</text>
+			<text class="m-right" style="margin-left:auto;color:pink;">More></text>
+		</view>
+		<view bindtap="goWorkList" class="news-list flex" wx:for="{{works}}" wx:key="id">
+			<image mode="aspectFill" src="{{item.image}}"></image>
+			<view class="right">
+				<view class="title">德州线上乐器城</view>
+				<view class="desc">
+					<text>吉他,尤里可可,小提琴,鼓棒等</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="gray-line"></view>
+	<view class="news works">
+		<view class="flex" style="padding-right:24rpx;">
+			<text class="header-title">闲置商品</text>
+			<text class="m-right" style="margin-left:auto;color:pink;">More></text>
+		</view>
+		<view bindtap="goWeb" class="news-list flex" >
+			<image mode="aspectFill" src="https://m.nimar.cn/file/image/idle.jpg"></image>
+			<view class="right">
+				<view class="title">闲置物品租赁平台</view>
+				<view class="desc">
+					<text>闲置用品不想卖？来试试租赁服务！ 安全，可靠！</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="gray-line"></view>
 	<view class="news">
+		<view class="header-title">最新资讯</view>
 		<view data-url="{{item.link}}" bindtap="goWeb" class="news-list flex" wx:for="{{news}}" wx:key="id">
 			<image mode="aspectFill" src="{{item.images[0]}}"></image>
 			<view class="right">
@@ -52,4 +86,7 @@
 			</view>
 		</view>
 	</view>
+	<cover-view  wx:if="{{showPublishFlag}}" bindtap="goPublish" class="cover">
+			<cover-image class="c-image" src="../../image/send_HL.png"></cover-image>
+		</cover-view>
 </view>

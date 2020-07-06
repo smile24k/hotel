@@ -3,18 +3,32 @@
 <view>
   <view class="header flex">
     <view class="img">
-    
-      <open-data type="userAvatarUrl"></open-data>
+      <image wx:if="{{userData.avatar}}" src="{{userData.avatar}}"></image>
+      <open-data wx:else type="userAvatarUrl"></open-data>
     </view>
     <view class="name">
-      <open-data type="userNickName"></open-data>
+      <text wx-if="{{userData.avatar}}">{{userData.nickName}}</text>
+      <open-data wx:else type="userNickName"></open-data>
     </view>
   </view>
+    <view class="point">
+      <text class="text1">我的积分: </text>
+      <text class="text2">{{userData.points}}</text>
+    </view>
   <mp-cells>
-    <mp-cell link url="../send/send/send?isMy=1" title="我的发布">
+    <mp-cell  wx:if="{{showPublishFlag}}" link url="../send/send/send?isMy=1" title="我的发布">
 				</mp-cell>
-    <mp-cell link url="../message/messageList/messageList" title="我的消息">
+    <mp-cell link url="../message/messageList/messageList" title="消息提醒">
                 <mp-badge wx:if="{{count > 0}}" content="{{count}}" style="margin-left: 5px;float:right"/>
             </mp-cell>
+             <mp-cell link url="../message/privateMsgList/privateMsgList" title="我的私信">
+                <mp-badge wx:if="{{msgCount > 0}}" content="{{msgCount}}" style="margin-left: 5px;float:right"/>
+            </mp-cell>
+    <mp-cell link url="../myData/myData" title="编辑信息">
+                
+            </mp-cell>
+    <!-- <mp-cell link url="../webView/server/server" title="联系我们">
+                
+            </mp-cell> -->
   </mp-cells>
 </view>

@@ -1,0 +1,13 @@
+<!-- pages/myData/myData.wxml -->
+
+<view class="my-data">
+  <view class="avatar flex">
+    <image  bindtap="chooseImage" src="{{userData.avatar}}"></image> 
+
+    <text class="gray">点击头像更换图片</text>
+  </view>
+  <view class="name">
+    <input bindinput="setName" maxlength="10" value="{{userData.nickName}}" class="inp"></input>
+  </view>
+</view>
+<button bindtap="upPic" class="btn">保存</button>

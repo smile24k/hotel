@@ -41,8 +41,8 @@
   <scroll-view class="content"  scroll-y="true" bindscrolltolower="getSendList" lower-threshold="100">
     <view class="send-list {{index == sendList.length - 1 ? 'last':''}}" wx:for="{{sendList}}" wx:key="index" data-id="{{item.id}}" catchtap="goDetail">
       <view class="send-top flex">
-        <view class="left flex">
-          <image mode="widthFix" src="{{item.user.avatar}}"></image>
+        <view class="left flex" catchtap="goSendMsg" data-item="{{item}}">
+          <image mode="aspectFill" src="{{item.user.avatar}}"></image>
           <text>{{item.name}}</text>
         </view>
         <!-- <view class="right">
@@ -72,7 +72,7 @@
 				<text class="delete" catchtap="delList"  data-item="{{item}}"  data-index="{{index}}" wx-if="{{openId==item.openId}}">删除</text>
 			</view>
     </view>
-		<cover-view bindtap="goSendData" class="cover">
+		<cover-view wx:if="{{showPublishFlag}}" bindtap="goSendData" class="cover">
 			<cover-image class="c-image" src="../../../image/send_HL.png"></cover-image>
 		</cover-view>
 

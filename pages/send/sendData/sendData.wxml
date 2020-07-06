@@ -1,7 +1,7 @@
 <mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
 <view class="page send-data-page" xmlns:wx="http://www.w3.org/1999/xhtml">
 	<view class="top">
-		<text>免责声明: 本平台发布的所有信息仅供展示,请遵守当地法律,信息与平台无关,不负任何责任</text>
+		<text>免责声明: 本平台分享的所有信息仅供展示,请遵守当地法律,信息与平台无关,不负任何责任</text>
 		<text class="red">免费发布!</text>
 	</view>
 	<view class="page__bd">
@@ -61,7 +61,7 @@
                     <view class="weui-agree__checkbox-icon">
                         <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
                     </view>
-                    阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
+                    阅读并同意<navigator url="../../userRule/userRule" class="weui-agree__link">《相关条款》</navigator>
                 </view>
             </label>
         </checkbox-group>

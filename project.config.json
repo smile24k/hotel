@@ -25,7 +25,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.0",
+	"libVersion": "2.11.0",
 	"appid": "wx3e21300d9ea989d4",
 	"projectname": "hotel",
 	"debugOptions": {
@@ -104,6 +104,27 @@
 					"id": -1,
 					"name": "pages/reqList/reqList",
 					"pathName": "pages/reqList/reqList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的资料",
+					"pathName": "pages/myData/myData",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "作品展示",
+					"pathName": "pages/workList/workList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "userRule",
+					"pathName": "pages/userRule/userRule",
 					"scene": null
 				}
 			]

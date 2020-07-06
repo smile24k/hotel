@@ -45,7 +45,8 @@ Page({
     sendList: [],
     zanLoading:false,
     openId:'',
-    isMy:false
+    isMy:false,
+    showPublishFlag:false
   },
 
   bindMultiPickerChange: function (e) {
@@ -156,7 +157,13 @@ Page({
     });
 
   },
-
+  onShow(){
+    app.getAuth(res => {
+      this.setData({
+        showPublishFlag:res
+      })
+    })
+  },
   getSendList() {
     const {
       page,
@@ -234,7 +241,7 @@ Page({
     preview(images, index);
   },
   goSendData(){
-    wx.switchTab({
+    wx.navigateTo({
       url: '../sendData/sendData',
     })
   },
@@ -242,6 +249,30 @@ Page({
     const {currentTarget:{dataset:{id}}} = e;
     wx.navigateTo({
       url: '../sendDetail/sendDetail?id='+id,
+    })
+  },
+  goSendMsg(e){
+    const {currentTarget:{dataset:{item}}} = e;
+    let user = app.userData || app.userInfo;
+    if(!user.avatar){
+      wx.showModal({
+        complete: (res) => {},
+        confirmText: '确定',
+        showCancel:false,
+        content: '请授权后进行私信',
+        fail: (res) => {},
+        success: (result) => {
+          wx.navigateTo({
+            url: '../../getUser/getUser'
+          })
+        },
+        title: '提示',
+      })
+      return;
+    }
+    
+    wx.navigateTo({
+      url: '../../message/sendMsg/sendMsg?name='+encodeURI(item.name)+'&openId='+item.openId+'&id='+item.id
     })
   },
   zan(e){

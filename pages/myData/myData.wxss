@@ -1,0 +1,40 @@
+/* pages/myData/myData.wxss */
+page{
+  height: 100%;
+}
+.my-data{
+  padding: 20rpx;
+  height: calc(100% - 140rpx);
+}
+.my-data .avatar {
+  flex-direction: column;
+  justify-content: center;
+}
+.gray{
+  color: #999;
+  margin-top: 20rpx;
+}
+.my-data .avatar image{
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 12rpx;
+}
+.inp{
+  background-color: #f2f2f2;
+  border-radius: 6rpx;
+  padding-left: 20rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  margin-top: 20rpx;
+}
+
+.btn{
+  background-color: #333;
+  width: 700rpx !important;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+  border: none;
+  font-weight: normal;
+  color: #fff;
+}

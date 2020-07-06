@@ -42,7 +42,7 @@ Page({
       loading:true
     })
     const {openId} = app;
-    let url = `${constant.apiUrl}/web/wechat/notice?page=${page}&size=${size}&openId=${openId}`;
+    let url = `${constant.apiUrl}/web/wechat/message?page=${page}&size=${size}&openId=${openId}`;
     wx.request({
       url,
       complete: (res) => {
@@ -61,7 +61,7 @@ Page({
             loading:false
           })
           
-    this.read();
+        this.read();
         }
       },
     })
@@ -79,7 +79,7 @@ Page({
 
   read(){
     const {openId} = app;
-    let url = `${constant.apiUrl}/web/wechat/notice/${openId}`;
+    let url = `${constant.apiUrl}/web/wechat/message/look/${openId}`;
     wx.request({
       url,
       complete: (res) => {

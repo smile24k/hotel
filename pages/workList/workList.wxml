@@ -1,0 +1,29 @@
+<view class="work">
+  <view class="banner">
+    <image bindtap="showBanner" mode="widthFix" src="https://m.nimar.cn/file/image/banner.png"></image>
+  </view>
+  <view class="copy">
+    <text class="link" bindtap="copyText" selectable="true">{{link}}</text>
+  <view>
+  <text class="text">点击上方链接即可复制,请在浏览器中打开购买</text>
+  </view>
+  </view>
+  <view class="img-content">
+    <view class="imgs flex">
+      <view class="img-list" wx:for="{{works}}">
+        <image bindtap="showImg" data-index="{{index}}" mode="aspectFill" src="{{item.image}}"></image>
+        <view class="name">{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="more" bindtap="showQr">获取帮助</view>
+
+  <view catchtouchmove wx:if="{{qrFlag}}" class="modal flex" catchtap="closeQr">
+    <view class="modal-content flex">
+      <image catchtap src="https://m.nimar.cn/file/image/qrcode.jpg"></image>
+
+      <text>截图识别二维码,获取更多帮助</text>
+    </view>
+  </view>
+</view>

@@ -1,5 +1,8 @@
+const app = getApp();
 import constant from "../../utils/constant";
-
+import {
+  preview
+} from "../../utils/common";
 Page({
 
   /**
@@ -14,7 +17,9 @@ Page({
     duration: 500,
     bannerList: [],
     news: [],
-    shopList:[]
+    shopList:[],
+    works:[],
+    showPublishFlag:false
   },
 
   getCates() {
@@ -101,6 +106,27 @@ Page({
       },
     })
   },
+  getWorks() {
+    wx.request({
+      url: constant.apiUrl + '/web/wechat/works?page=1&size=1',
+      complete: (res) => {
+        wx.hideLoading({
+          complete: (res) => {},
+        })
+      },
+      fail: (res) => {},
+      method: "GET",
+      success: (result) => {
+        const {
+          data
+        } = result;
+        this.setData({
+          works: data.data
+        })
+
+      },
+    })
+  },
   goWeb(e) {
     console.log(e);
     
@@ -113,6 +139,11 @@ Page({
     } = e;
     wx.navigateTo({
       url: '../webView/view?url=' + url,
+    })
+  },
+  goWorkList(){
+    wx.navigateTo({
+      url: '../workList/workList',
     })
   },
   goReqDetail(e){
@@ -162,14 +193,37 @@ Page({
       url: '../addShop/addShop',
     })
   },
+  showImg(e) {
+    
+    const {
+      target: {
+        dataset: {
+          index
+        }
+      }
+    } = e;
+    preview(this.data.bannerList, index);
+  },
+  goWeb(){
+    wx.navigateTo({
+      url: '../webView/copyLink/copyLink',
+    })
+  },
+  goPublish(){
+    wx.navigateTo({
+      url: '../send/sendData/sendData',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getCates();
+    this.getWorks();
     this.getBanner();
     this.getNews();
+    
   },
 
   /**
@@ -183,7 +237,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
+    // this.getAuth();
+    app.getAuth(res => {
+      this.setData({
+        showPublishFlag:res
+      })
+    })
     this.getBusiness();
   },
   onShareAppMessage() {

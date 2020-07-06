@@ -9,7 +9,10 @@ Page({
   data: {
     page:1,
     size:1,
-    count:0
+    count:0,
+    msgCount:0,
+    userData:app.userData,
+    showPublishFlag:false
   },
 
   /**
@@ -38,6 +41,25 @@ Page({
       },
     })
   },
+  getPrivate(){
+    const {page,size} = this.data;
+    const {openId} = app;
+    let url = `${constant.apiUrl}/web/wechat/message?page=${page}&size=${size}&openId=${openId}&status=0`;
+    wx.request({
+      url,
+      complete: (res) => {
+      },
+      fail: (res) => {},
+      method: "GET",
+      success: (result) => {
+        if (result.data.status == 200) {
+          this.setData({
+            msgCount:result.data.page.total
+          })
+        }
+      },
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -51,15 +73,32 @@ Page({
    */
   onShow: function () {
     const {openId} = app;
-
+    let that = this;
+    app.getAuth(res => {
+      this.setData({
+        showPublishFlag:res
+      })
+    })
     if(!openId){
       app.getOpenId(id => {
         this.getMessage();
+        this.getPrivate();
+        that.getUserData(id);
       })
       return;
     }
     this.getMessage();
+    this.getPrivate();
+    this.getUserData(openId);
   },
+  getUserData(openId){
+    app.getUserData(openId,function(data){
+      this.setData({
+        userData:data
+      })
+    }.bind(this));
+  },
+  
 
   /**
    * 生命周期函数--监听页面隐藏

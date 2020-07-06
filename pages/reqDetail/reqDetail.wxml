@@ -19,5 +19,5 @@
       <mp-cell bindtap="phone" link value="联系电话" footer="{{detail.mobile}}"></mp-cell>
       <mp-cell  value="详情" footer="{{detail.description}}"></mp-cell>
     </mp-cells>
-    <button class="btn-fixed"  bindtap="submitForm">加入商圈</button>
+    <button wx:if="{{showPublishFlag}}" class="btn-fixed"  bindtap="submitForm">加入商圈</button>
 	</view>

@@ -1,0 +1,18 @@
+/* pages/webView/copyLink/copyLink.wxss */
+.copy{
+  padding-left: 20rpx;
+  padding-bottom: 30rpx;
+  text-align: center;
+}
+.copy.first{
+  margin-top: 150px;
+}
+.copy .link{
+  font-size: 16px;
+  color: cadetblue;
+  margin-top: 150px;
+
+}
+.copy .text{
+  color: #666;
+}
