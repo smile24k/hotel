@@ -29,9 +29,14 @@ Page({
         message: '手机号必填'
       }],
     }],
+    showPublishFlag:false
   },
   onShow() {
-
+    app.getAuth(res => {
+      this.setData({
+        showPublishFlag:res
+      })
+    })
 
   },
   formInputChange(e) {

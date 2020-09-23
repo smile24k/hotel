@@ -1,5 +1,5 @@
 <mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
-<view class="page send-data-page" xmlns:wx="http://www.w3.org/1999/xhtml">
+<view wx:if="{{showPublishFlag}}" class="page send-data-page" xmlns:wx="http://www.w3.org/1999/xhtml">
 	<view class="top">
 		<text>免责声明: 本平台分享的所有信息仅供展示,请遵守当地法律,信息与平台无关,不负任何责任</text>
 		<text class="red">免费发布!</text>
@@ -79,3 +79,4 @@
         </view>
     </view>
 </view>
+<view wx:else style="text-align:center;">暂无法使用此功能,敬请谅解</view>
