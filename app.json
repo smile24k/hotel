@@ -18,7 +18,8 @@
     "pages/workList/workList",
     "pages/webView/copyLink/copyLink",
     "pages/webView/server/server",
-    "pages/userRule/userRule"
+    "pages/userRule/userRule",
+    "pages/book/book"
   ],
   "tabBar": {
     "color": "#cdcdcd",

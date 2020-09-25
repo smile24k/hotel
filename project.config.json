@@ -1,133 +1,150 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		}
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.11.0",
-	"appid": "wx3e21300d9ea989d4",
-	"projectname": "hotel",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": 0,
-					"name": "pages/reqDetail/reqDetail",
-					"pathName": "pages/reqDetail/reqDetail",
-					"query": "id=a645db19f320428e9f9aaa45350d864c",
-					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "pages/reqDetail/reqDetail",
-					"pathName": "pages/reqDetail/reqDetail",
-					"query": "id=cbaa4312fa7c4c9687ad2da8eef3eb81",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/send/send/send",
-					"pathName": "pages/send/send/send",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/sendDetail",
-					"pathName": "pages/send/sendDetail/sendDetail",
-					"query": "id=8740cf0970e74ce2b9903336b9ecf5d4",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/my",
-					"pathName": "pages/my/my",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "发布回复",
-					"pathName": "pages/message/messageList/messageList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/reqList/reqList",
-					"pathName": "pages/reqList/reqList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的资料",
-					"pathName": "pages/myData/myData",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "作品展示",
-					"pathName": "pages/workList/workList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "userRule",
-					"pathName": "pages/userRule/userRule",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": []
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.11.0",
+  "appid": "wx3e21300d9ea989d4",
+  "projectname": "hotel",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "plugin": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": [
+        {
+          "id": 0,
+          "name": "pages/reqDetail/reqDetail",
+          "pathName": "pages/reqDetail/reqDetail",
+          "query": "id=a645db19f320428e9f9aaa45350d864c",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "pages/reqDetail/reqDetail",
+          "pathName": "pages/reqDetail/reqDetail",
+          "query": "id=cbaa4312fa7c4c9687ad2da8eef3eb81",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/send/send/send",
+          "pathName": "pages/send/send/send",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/sendDetail",
+          "pathName": "pages/send/sendDetail/sendDetail",
+          "query": "id=8740cf0970e74ce2b9903336b9ecf5d4",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/my",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "发布回复",
+          "pathName": "pages/message/messageList/messageList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/reqList/reqList",
+          "pathName": "pages/reqList/reqList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的资料",
+          "pathName": "pages/myData/myData",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "作品展示",
+          "pathName": "pages/workList/workList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "userRule",
+          "pathName": "pages/userRule/userRule",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/book/book",
+          "pathName": "pages/book/book",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

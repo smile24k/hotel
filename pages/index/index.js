@@ -108,7 +108,7 @@ Page({
   },
   getWorks() {
     wx.request({
-      url: constant.apiUrl + '/web/wechat/works?page=1&size=1',
+      url: constant.apiUrl + '/web/wechat/works?page=1&size=1&category=instrument',
       complete: (res) => {
         wx.hideLoading({
           complete: (res) => {},
@@ -144,6 +144,11 @@ Page({
   goWorkList(){
     wx.navigateTo({
       url: '../workList/workList',
+    })
+  },
+  goBook(){
+    wx.navigateTo({
+      url: '../book/book',
     })
   },
   goReqDetail(e){

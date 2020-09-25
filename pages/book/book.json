@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "北美中文书店中文产品",
+  "usingComponents": {
+    "mp-icon": "../../../components/icon/icon"
+  }
+}

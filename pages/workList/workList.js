@@ -26,7 +26,7 @@ Page({
       loading:true
     })
     wx.request({
-      url: constant.apiUrl + '/web/wechat/works?page='+page+'&size='+size,
+      url: constant.apiUrl + '/web/wechat/works?page='+page+'&size='+size+'&category=instrument',
       complete: (res) => {
         wx.hideLoading({
           complete: (res) => {},

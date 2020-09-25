@@ -44,6 +44,21 @@
 	<view class="gray-line"></view>
 	<view class="news works">
 		<view class="flex" style="padding-right:24rpx;">
+			<text class="header-title">北美中文书店中文产品</text>
+		</view>
+		<view bindtap="goBook" class="news-list flex">
+			<image mode="aspectFill" src="https://m.nimar.cn/file/image/goods63.jpg"></image>
+			<view class="right">
+				<view class="title">中文图书</view>
+				<view class="desc">
+					<text>海量中文图书等你发现</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="gray-line"></view>
+	<view class="news works">
+		<view class="flex" style="padding-right:24rpx;">
 			<text class="header-title">乐器商城</text>
 			<text class="m-right" style="margin-left:auto;color:pink;">More></text>
 		</view>

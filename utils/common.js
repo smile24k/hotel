@@ -21,6 +21,28 @@ export function getArea(cb){
   })
 }
 
+export function getGoodsCategory(cb){
+  
+  wx.request({
+    url: constant.apiUrl + "/web/dictionary/goods",
+    complete: (res) => {
+      
+    },
+    fail: (res) => {
+      wx.showToast({
+        title: '查询分类失败',
+        icon:'none'
+      })
+    },
+    method: "GET",
+    success: (result) => {
+      if(cb && typeof cb == "function"){
+        cb(result.data);
+      }
+    },
+  })
+}
+
 export function getCategory(cb){
   
   wx.request({

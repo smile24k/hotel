@@ -2,9 +2,9 @@
   "component": true,
   "usingComponents": {
     "mp-toptips": "../../../components/toptips/toptips",
-    "mp-uploader": "../components/uploader/uploader",
-    "mp-cells": "../components/cells/cells",
-    "mp-cell": "../components/cell/cell",
+    "mp-uploader": "../../../components/uploader/uploader",
+    "mp-cells": "../../../components/cells/cells",
+    "mp-cell": "../../../components/cell/cell",
     "mp-checkbox": "../../../components/checkbox/checkbox",
     "mp-checkbox-group": "../../../components/checkbox-group/checkbox-group",
     "mp-form": "../../../components/form/form",

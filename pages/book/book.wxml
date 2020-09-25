@@ -1,0 +1,35 @@
+<!--pages/send/send.wxml-->
+<view class="send-page">
+
+
+<view class="header">
+  <view class="list">
+    <picker bindchange="bindMultiPickerChange" data-type="area" bindcolumnchange="bindMultiPickerColumnChange" range-key="name" value="{{areaIndex}}" range="{{areaList}}">
+      <view class="picker">
+        {{areaList[areaIndex].name}}
+      </view>
+    </picker>
+
+    <text class="arrow-down"></text>
+
+  </view>
+  
+</view>
+<scroll-view scroll-y="true" class="img-content" lower-threshold="100" bindscrolltolower="bindscrolltolower">
+    <view class="imgs flex">
+      <view class="img-list" wx:for="{{works}}" wx:key="index">
+        <image bindtap="showImg" data-index="{{index}}" mode="aspectFill" src="{{item.image}}"></image>
+        <view class="name">{{item.title}}</view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="more" bindtap="showQr">获取帮助</view>
+
+  <view catchtouchmove wx:if="{{qrFlag}}" class="modal flex" catchtap="closeQr">
+    <view class="modal-content flex">
+      <image catchtap src="https://m.nimar.cn/file/image/qrcode.jpg"></image>
+
+      <text>截图识别二维码,获取更多帮助</text>
+    </view>
+  </view>
+</view>
